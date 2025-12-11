@@ -1,0 +1,19 @@
+import socket
+
+target = "127.0.0.1"  # 
+open_ports = []
+
+print(f"Tarama başlatıldı: {target}")
+
+for port in range(1, 1025):  # İlk 1024 portu tarar
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(0.3)
+    
+    result = s.connect_ex((target, port))
+    if result == 0:
+        open_ports.append(port)
+        print(f"Port açık: {port}")
+    
+    s.close()
+
+print("\nAçık portlar:", open_ports)
