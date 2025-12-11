@@ -1,0 +1,17 @@
+import ctypes
+import time
+import random
+
+messages = [
+    "Merhaba!",
+    "Naber?",
+    "Bilgisayar iyi mi?",
+    "Bu bir şaka :)",
+    "Bip bip!",
+    "Hala buradayım!",
+]
+
+for i in range(10):  # Kaç pencere açılacak
+    msg = random.choice(messages)
+    ctypes.windll.user32.MessageBoxW(0, msg, "Sürpriz!", 0)
+    time.sleep(0.2)
